@@ -1,0 +1,9 @@
+################################################################################
+#The purpose of this file is to input e-mail addresses line by line so that the#
+#system status scripts will read the e-mail addresses and                      #
+#send notifications to those individuals.                                      #
+#Usage: Input only e-mail addresses line by line.                              #
+################################################################################
+daniel.kang@foobar.com
+first.last@foobar.com
+example.admin@foobar.com
