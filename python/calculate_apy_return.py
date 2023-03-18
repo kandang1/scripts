@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/env python3
 # Author: Dan Kang
 
 """ script to calculate the return based on APY
@@ -47,12 +47,12 @@ print("\nThe monthly interest rate is: ",round(calculate_monthly_interest_rate_t
 # Now compound it 12 times to get the total for 12 months / 1 year
 MONTHLY_COMPOUNDED_BALANCES = []
 MONTHLY_COMPOUNDED_BALANCES.append(PRINCIPAL)
-#print(MONTHLY_COMPOUNDED_BALANCES)
+cents = decimal.Decimal('.01')
 
 for i in range(12):
   compound_monthly(calculate_monthly_interest_rate_to_decimal(APY),MONTHLY_COMPOUNDED_BALANCES[i],MONTHS[i])
 
 FINAL_SUM = MONTHLY_COMPOUNDED_BALANCES[-1]
-rounded_sum = round(FINAL_SUM, 2)
+rounded_sum = decimal.Decimal(FINAL_SUM)
 
-print(f'\nYour total balance after one year with an initial investment compounded monthly of', MONTHLY_COMPOUNDED_BALANCES[1]-monthlyInterest, f'and APY of {APY} is ${rounded_sum}')
+print(f'\nYour total balance after one year with an initial investment compounded monthly of', MONTHLY_COMPOUNDED_BALANCES[1]-monthlyInterest, f'and APY of {APY} is ${rounded_sum.quantize(cents,decimal.ROUND_HALF_UP)}')
