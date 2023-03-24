@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import paramiko, datetime, gzip, smtplib, ConfigParser
 from sys import exit
 from email.mime.multipart import MIMEMultipart
