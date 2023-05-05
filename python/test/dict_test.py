@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3.9
 
 import json
 
@@ -13,11 +13,11 @@ dict1 = {
 
 dict2 = {
   'meta-hostgroups': {
-    'git': [ 'a', 'b', 'c', 'd', 'e', 'DICT2_GIT'],
+    'git': [ 'a', 'b', 'c', 'd', 'e', 'DICT2_GIT', 'UNIQUE_VALUE_TO_DICT_2'],
     'jira': [ 'f', 'g', 'h', 'a', 'b', 'DICT2_JIRA' ],
    },
   'test_key1_dict1': [ 'test_value_dict1', 'DICT2_TEST_KEY1' ],
-  'test_key2_dict1': [ 'test_value_2_dict2', 'DICT2_TEST_KEY2_DICT_2' ],
+  'test_key2_dict1': [ 'test_value_2_dict2', 'DICT2_TEST_KEY2_DICT_2', 'some_unique_value_to_second_dict' ],
 }
 
 d = {}
@@ -43,6 +43,9 @@ for key,value in dict2.items():
           d[key] = value
   elif isinstance(value, list):
     print('key is', key, 'and value', value, 'is a list')
+    for item in value:
+      print('on the key', key)
+      print('the value in this list is', value, 'and the item is', item)
   elif isinstance(value, list):
     print('key is', key, 'and value', value, 'is a list')
   else:
